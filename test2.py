@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 n = input("Podaj n: ")
 n = int(n)
 
+min_range = -1
+max_range = 1
+
 
 def function_to_interpolate(x):
     return 1 / (1 + 25 * x ** 2)
@@ -21,7 +24,7 @@ def calculate_table_of_difference_quotients(list):
 
 lista = []
 
-x = np.linspace(-1, 1, n)
+x = np.linspace(min_range, max_range, n)
 lista.append(x)
 
 y = function_to_interpolate(x)
@@ -42,7 +45,7 @@ def calculate_x_from_newton_polynomial(x, difference_quotients):
     return result
 
 
-range_to_interpolate = np.linspace(-1, 1, 10000)
+range_to_interpolate = np.linspace(min_range, max_range, 10000)
 
 y_calculated_by_function = []
 for x in range_to_interpolate:
